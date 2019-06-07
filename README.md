@@ -15,10 +15,6 @@ python量化交易
 ###
 <h4>项目预览</h4>
 ###</br>
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/1.png" />
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/2.png" />
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/wordcount.png" />
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/education.png" />
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/experience.png" />
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/search.png" />
-<img src="https://github.com/Frank-qlu/recruit/blob/master/%E6%8B%9B%E8%81%98%E7%88%AC%E8%99%AB/images/back.png" />
+<img src="https://github.com/Frank-qlu/fund/blob/master/images/1.png" />
+<img src="https://github.com/Frank-qlu/fund/blob/master/images/2.png" />
+<img src="https://github.com/Frank-qlu/fund/blob/master/images/3.png" />
