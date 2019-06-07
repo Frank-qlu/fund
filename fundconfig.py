@@ -1,0 +1,6 @@
+import os
+URI="mysql+pymysql://root:123456@localhost:3306/stock?charset=utf8"
+SQLALCHEMY_DATABASE_URI=URI
+DEBUG=True
+TEMPLATES_AUTO_RELOAD=True
+SQLALCHEMY_TRACK_MODIFICATIONS=False

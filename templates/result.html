@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="panel panel-default" style="margin: 50px">
+  <!-- Default panel contents -->
+  <!-- Table -->
+  <table class="table ">
+     <thead >
+    <tr>
+        <th>基金编号</th>
+        <th>交易日期</th>
+        <th>开盘价(元)</th>
+        <th>收益价(元)</th>
+        <th>最高价(元)</th>
+        <th>最低价(元)</th>
+        <th>成交量(手)</th>
+        <th>成交额(千元)</th>
+        <th>前日收盘价(元)</th>
+        <th>涨跌额(元)</th>
+        <th>涨跌幅(%)</th>
+    </tr>
+    </thead>
+    <tbody>
+{#    {% for item in g.zw %}#}
+    <tr>
+        <td>{{  g.done_set1[1]}}</td>
+        <td>{{  g.done_set1[0]}}</td>
+      <td>{{  g.done_set1[2]}}</td>
+        <td>{{  g.done_set1[3]}}</td>
+        <td>{{  g.done_set1[4]}}</td>
+        <td>{{  g.done_set1[5]}}</td>
+        <td>{{  g.done_set1[6]}}</td>
+        <td>{{  g.done_set1[7]}}</td>
+        <td>{{  g.done_set1[8]}}</td>
+        <td>{{  g.done_set1[9]}}</td>
+        <td>{{  g.done_set1[10]}}</td>
+        {% if g.stock_code== '603912.SH'  %}
+            <td><a href="{{ url_for("his1") }}">历史</a></td>
+        <td><a href="{{ url_for("pre1") }}">预测</a></td>
+        {% endif %}
+            {%  if g.stock_code== '300666.SZ' %}
+                <td><a href="{{ url_for("his2") }}">历史</a></td>
+            <td><a href="{{ url_for("pre2") }}">预测</a></td>
+    {% endif %}
+            {% if g.stock_code== '300618.SZ' %}
+                <td><a href="{{ url_for("his3") }}">历史</a></td>
+            <td><a href="{{ url_for("pre3") }}">预测</a></td>
+    {% endif %}
+            {%  if g.stock_code== '002049.SZ' %}
+                <td><a href="{{ url_for("his4") }}">历史</a></td>
+            <td><a href="{{ url_for("pre4") }}">预测</a></td>
+    {% endif %}
+            {% if g.stock_code== '300672.SZ' %}
+                <td><a href="{{ url_for("his5") }}">历史</a></td>
+            <td><a href="{{ url_for("pre5") }}">预测</a></td>
+        {% endif %}
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

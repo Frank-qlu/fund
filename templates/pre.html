@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>指数基金交易预测走势图</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container1" style="width: 650px; height: 400px; margin: 0 auto">
+</div>
+<br>
+<br>
+<div style="text-align: center">
+     <input type="button" value="预测数据导出" name="123" onclick="hello()"/>
+	<p id="display">{{ temp }}</p>
+</div>
+<script type="text/javascript">
+   function hello()
+   {
+       $.ajax(
+      {
+         type: "POST",
+         url: {% block url1 %}
+
+         {% endblock %},
+         dataType: "html",
+         success: function(msg)
+         {
+             console.log(msg);
+             $("#display").html(msg);//注意显示的id
+         },
+         error: function (xhr, status, error) {
+            console.log(error);
+        }
+      });
+   }
+</script>
+<script language="JavaScript">
+$(document).ready(function() {
+   var title = {
+      text: '未来一周交易预测曲线'
+   };
+   var subtitle = {
+      text: {% block text_pre %}
+      {% endblock %}
+   };
+   var xAxis = {
+      categories:{% block date_pre %}
+      {% endblock %}
+   };
+   var yAxis = {
+     title: {
+         text: 'price'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };
+
+   var tooltip = {
+      {#valueSuffix: '\xB0C'#}
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+
+   var series =  [
+      {
+         name: 'close',
+         data:{% block data_pre %}
+      {% endblock %}
+      }
+   ];
+
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.tooltip = tooltip;
+   json.legend = legend;
+   json.series = series;
+
+   $('#container1').highcharts(json);
+});
+</script>
+</body>
+</html>

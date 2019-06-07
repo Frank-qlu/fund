@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>指数基金收益曲线图</title>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+<div id="container" style="width: 650px; height: 400px; margin: 0 auto">
+</div>
+<br>
+<br>
+<div style="text-align: center">
+     <input type="button" value="历史数据导出" name="123" onclick="hello()"/>
+	<p id="display">{{ temp }}</p>
+</div>
+<script type="text/javascript">
+   function hello()
+   {
+       $.ajax(
+      {
+         type: "POST",
+         url: {% block url %}
+         
+         {% endblock %},
+         dataType: "html",
+         success: function(msg)
+         {
+             console.log(msg);
+             $("#display").html(msg);//注意显示的id
+         },
+         error: function (xhr, status, error) {
+            console.log(error);
+        }
+      });
+   }
+</script>
+<script language="JavaScript">
+$(document).ready(function() {
+   var title = {
+      text: '过去一个月收益曲线'
+   };
+   var subtitle = {
+      text: {% block text_history %}
+{% endblock %}
+   };
+   var xAxis = {
+      categories:{% block date_history %}
+      {% endblock %}
+   };
+   var yAxis = {
+     title: {
+         text: '涨跌幅'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };
+
+   var tooltip = {
+      {#valueSuffix: '\xB0C'#}
+   }
+
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+   };
+
+   var series =  [
+      {
+         name: '收益',
+         data:{% block data_history %}
+      {% endblock %}
+      }
+   ];
+
+   var json = {};
+
+   json.title = title;
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.tooltip = tooltip;
+   json.legend = legend;
+   json.series = series;
+
+   $('#container').highcharts(json);
+});
+</script>
+</body>
+</html>
